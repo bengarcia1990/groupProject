@@ -2,42 +2,24 @@ import React, { Component } from 'react'
 import '../css/bookshelf.css';
 import Book from './book';
 class Bookshelf extends Component {
-    constructor() {
-        super()
-        this.state = {
-            books: [
-                {
-                    title: 'Hello',
-                    author: 'Frost',
-                    year: '1974',
-                    genre: 'Horror'
-                },
-                {
-                    title: 'Why',
-                    author: 'Hemingway',
-                    year: '1950',
-                    genre: 'Fantasy'
-                },
-                {
-                    title: 'Sup',
-                    author: 'Martin',
-                    year: '1992',
-                    genre: 'Sports'
-                },
-            ]
-        }
-    }
+    // constructor() {
+    //     super();
+    // }
 
 
     render() {
         return (
             <div className='div-bookshelf'>
                 <div className='row'>
-                    {this.state.books.map(book => {
+                    {this.state.book.map(book => {
                         return <Book title={book.title} author={book.author} year={book.year} genre={book.genre} />
                     })}
                 </div>
-                <div>
+                <div className='form-group'>
+                    <input className='form-control' placeholder='Book Name'></input>
+                    <input className='form-control' placeholder='Book Author'></input>
+                    <input className='form-control' placeholder='Year Published'></input>
+                    <input className='form-control' placeholder='Genre'></input>
                     <button className="btn btn-success add-button" onClick={this.addBook.bind(this)}>Add</button>
                 </div>
 
