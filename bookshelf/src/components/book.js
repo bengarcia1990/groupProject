@@ -7,10 +7,11 @@ class Book extends Component {
         this.setState({
             books: [
                 {
-                    title: this.props.title,
-                    author: this.props.author,
-                    year: this.props.year,
-                    genre: this.props.genre
+                    title: "A Title",
+                    author: "An Author",
+                    year: "A Year",
+                    genre: "A Genre",
+                    editMode: false
                 }
             ]
         })
@@ -36,22 +37,47 @@ class Book extends Component {
 
     render() {
 
-        let titleElement, authorElement, yearElement, genreElement;
+        let titleElement, authorElement, yearElement, genreElement, buttonArea
         if (this.state.editMode) {
-            titleElement = <textarea ref="titleContent" className="title-textarea" defaultValue={this.state.title}></textarea>
+            titleElement = (<textarea ref="titleContent" className="title-textarea" defaultValue={this.state.title}></textarea>)
 
-            authorElement = <textarea ref="authorContent" className="author-textarea" defaultValue={this.state.author}></textarea>
+            authorElement = (<textarea ref="authorContent" className="author-textarea" defaultValue={this.state.author}></textarea>)
 
-            yearElement = <textarea ref="yearContent" className="year-textarea" defaultValue={this.state.year}></textarea>
+            yearElement = (<textarea ref="yearContent" className="year-textarea" defaultValue={this.state.year}></textarea>)
 
-            genreElement = <textarea ref="genreContent" className="genre-textarea" defaultValue={this.state.genre}></textarea>
+            genreElement = (<textarea ref="genreContent" className="genre-textarea" defaultValue={this.state.genre}></textarea>)
+
+            buttonArea = (
+                <div>
+                    <button className='btn btn-info' onClick={this.handleSave.bind(this)}>
+                        Save
+                  </button>
+                </div>
+            )
 
         }
         else {
-            titleElement = <h5>{this.state.title}</h5>
+            titleElement = <h4>{this.state.title}</h4>
             authorElement = <h5>{this.state.author}</h5>
             yearElement = <h5>{this.state.year}</h5>
             genreElement = <h5>{this.state.genre}</h5>
+            buttonArea = (
+                <div>
+                    <button
+                        className='btn btn-warning'
+                        onClick={this.handleEdit.bind(this)}
+                    >
+                        Edit
+                  </button>
+
+                    <button
+                        className='btn btn-danger'
+                        onClick={this.handleDelete.bind(this)}
+                    >
+                        Delete
+                  </button>
+                </div>
+            )
         }
 
 
@@ -59,10 +85,11 @@ class Book extends Component {
             <div className='col-sm-4'>
                 <div className='card card-view'>
                     <div className='card-body'>
-                        <h4 className='card-title'>{titleElement}</h4>
-                        <h5>{authorElement}</h5>
-                        <h5>{yearElement}</h5>
-                        <h5>{genreElement}</h5>
+                        {titleElement}
+                        {authorElement}
+                        {yearElement}
+                        {genreElement}
+                        {buttonArea}
                     </div>
 
                 </div>
