@@ -14,11 +14,12 @@ class Book extends Component {
                         <h5>{this.props.genre}</h5>
                     </div>
                 </div>
+                <button className="btn btn-success add-button" onClick={this.addBook.bind(this)}>Add</button>
             </div>
         )
     }
-}
 
+}
 
 Book.defaultProps = {
     title: 'Title',
