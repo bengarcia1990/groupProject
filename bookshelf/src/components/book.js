@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
 import '../css/book.css';
 
+const GENERIC_BOOK_TITLE = 'New Book Title'
+const GENERIC_BOOK_AUTHOR = 'New Book Author'
+const GENERIC_BOOK_YEAR = 'New Book Year'
+const GENERIC_BOOK_GENRE = 'New Book Genre'
+
 class Book extends Component {
 
     componentWillMount() {
-        this.setState({
-            books: [
-                {
-                    title: "A Title",
-                    author: "An Author",
-                    year: "A Year",
-                    genre: "A Genre",
-                    editMode: false
-                }
-            ]
-        })
+        this.state = {
+
+
+            title: GENERIC_BOOK_TITLE,
+            author: GENERIC_BOOK_AUTHOR,
+            year: GENERIC_BOOK_YEAR,
+            genre: GENERIC_BOOK_GENRE,
+            editMode: false
+
+
+        }
     }
 
     handleEdit() {
         this.setState({
             editMode: true
         });
+    }
+
+    handleDelete() {
+        this.props.deleteHandler(this.props.id)
     }
 
     handleSave() {
@@ -37,7 +46,7 @@ class Book extends Component {
 
     render() {
 
-        let titleElement, authorElement, yearElement, genreElement, buttonArea
+        let titleElement, authorElement, yearElement, genreElement, buttonArea;
         if (this.state.editMode) {
             titleElement = (<textarea ref="titleContent" className="title-textarea" defaultValue={this.state.title}></textarea>)
 

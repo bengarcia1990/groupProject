@@ -39,6 +39,11 @@ class Bookshelf extends Component {
                         return <Book key={book.id} title={book.id} author={book.author} year={book.year} genre={book.genre} />
                     })}
                 </div>
+
+                <div>
+                    <button className='btn btn-success add-button' onClick={this.addBook.bind(this)}>Add</button>
+                </div>
+
             </div>
         )
     }
