@@ -53,6 +53,15 @@ class Book extends Component {
         );
     }
 
+    handleUnread() {
+        this.setState(
+            {
+                readMode: false,
+
+            }
+        );
+    }
+
 
     render() {
 
@@ -96,7 +105,7 @@ class Book extends Component {
                         Delete
                     </button>
 
-                    <button className="btn btn-success">Read
+                    <button className="btn btn-success" onClick={this.handleUnread.bind(this)}>Read
                         </button>
 
 
