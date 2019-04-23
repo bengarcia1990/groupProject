@@ -44,8 +44,13 @@ class Book extends Component {
 
     }
 
-    haveRead() {
-        document.getElementById("read").innerHTML = "Read";
+    handleRead() {
+        this.setState(
+            {
+                readMode: true,
+
+            }
+        );
     }
 
 
@@ -70,7 +75,7 @@ class Book extends Component {
             )
 
         }
-        else {
+        else if (this.state.readMode) {
             titleElement = <h4>{this.state.title}</h4>
             authorElement = <h5>{this.state.author}</h5>
             yearElement = <h5>{this.state.year}</h5>
@@ -91,8 +96,7 @@ class Book extends Component {
                         Delete
                     </button>
 
-                    <button className='btn btn-primary' id="read" onClick={this.haveRead.bind(this)}>
-                        Unread
+                    <button className="btn btn-danger" onClick={this.handleSave.bind(this)} disabled>Read
                         </button>
 
                 </div>
@@ -100,6 +104,30 @@ class Book extends Component {
 
             )
         }
+        else {
+            titleElement = <h4>{this.state.title}</h4>
+            authorElement = <h5>{this.state.author}</h5>
+            yearElement = <h5>{this.state.year}</h5>
+            genreElement = <h5>{this.state.genre}</h5>
+            buttonArea = (
+                <div>
+                    <button
+                        className='btn btn-warning'
+                        onClick={this.handleEdit.bind(this)}
+                    >
+                        Edit
+                  </button>
+
+                    <button
+                        className='btn btn-danger'
+                        onClick={this.handleDelete.bind(this)}
+                    >
+                        Delete
+                    </button>
+                    <button className="btn btn-warning" onClick={this.handleRead.bind(this)}>Unread</button></div>
+            );
+        }
+
 
 
         return (
