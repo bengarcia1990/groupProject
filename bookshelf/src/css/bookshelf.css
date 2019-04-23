@@ -1,0 +1,11 @@
+body {
+    background-image: url("https://cdn3.vectorstock.com/i/1000x1000/86/47/bookshelf-with-books-seamless-background-vector-5628647.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-block {
+    margin-top: 30px;
+    margin-bottom: 15px;
+   
+}

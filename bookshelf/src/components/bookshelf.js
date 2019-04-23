@@ -33,7 +33,15 @@ class Bookshelf extends Component {
 
     render() {
         return (
+
             <div className='div-bookshelf'>
+                <div>
+                    <div className='row'>
+                        <div className='col-md-10 offset-md-1'>
+                            <button className='btn btn-success btn-block' onClick={this.addBook.bind(this)}>Add Book to Bookshelf</button>
+                        </div>
+                    </div>
+                </div>
                 <div className='row'>
                     {this.state.books.map(book => {
                         return <Book key={book.id} id={book.id} deleteHandler={this.deleteBook.bind(this)} />
@@ -41,9 +49,7 @@ class Bookshelf extends Component {
                     })}
                 </div>
 
-                <div>
-                    <button className='btn btn-success add-button' onClick={this.addBook.bind(this)}>Add</button>
-                </div>
+
 
             </div>
         )

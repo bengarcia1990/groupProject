@@ -1,5 +1,9 @@
-div{
-    background-color: gray;
-    border-style: double;
-    font-family: Arial, Helvetica, sans-serif;
+.card-body {
+    background-image: url("https://thumbs.dreamstime.com/z/open-book-hardback-colorful-books-wooden-table-white-background-back-to-school-copy-space-text-education-business-concept-114717145.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-view {
+    margin: 20px;
 }

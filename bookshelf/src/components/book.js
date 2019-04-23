@@ -58,13 +58,13 @@ class Book extends Component {
 
         let titleElement, authorElement, yearElement, genreElement, buttonArea;
         if (this.state.editMode) {
-            titleElement = (<textarea ref="titleContent" className="title-textarea" defaultValue={this.state.title}></textarea>)
+            titleElement = (<textarea ref="titleContent" className="title-textarea" placeholder={this.state.title}></textarea>)
 
-            authorElement = (<textarea ref="authorContent" className="author-textarea" defaultValue={this.state.author}></textarea>)
+            authorElement = (<textarea ref="authorContent" className="author-textarea" placeholder={this.state.author}></textarea>)
 
-            yearElement = (<textarea ref="yearContent" className="year-textarea" defaultValue={this.state.year}></textarea>)
+            yearElement = (<textarea ref="yearContent" className="year-textarea" placeholder={this.state.year}></textarea>)
 
-            genreElement = (<textarea ref="genreContent" className="genre-textarea" defaultValue={this.state.genre}></textarea>)
+            genreElement = (<textarea ref="genreContent" className="genre-textarea" placeholder={this.state.genre}></textarea>)
 
             buttonArea = (
                 <div>
@@ -96,8 +96,10 @@ class Book extends Component {
                         Delete
                     </button>
 
-                    <button className="btn btn-danger" onClick={this.handleSave.bind(this)} disabled>Read
+                    <button className="btn btn-success">Read
                         </button>
+
+
 
                 </div>
 
