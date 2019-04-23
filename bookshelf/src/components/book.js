@@ -41,6 +41,11 @@ class Book extends Component {
             editMode: false
 
         });
+
+    }
+
+    haveRead() {
+        document.getElementById("read").innerHTML = "Read";
     }
 
 
@@ -84,8 +89,15 @@ class Book extends Component {
                         onClick={this.handleDelete.bind(this)}
                     >
                         Delete
-                  </button>
+                    </button>
+
+                    <button className='btn btn-primary' id="read" onClick={this.haveRead.bind(this)}>
+                        Unread
+                        </button>
+
                 </div>
+
+
             )
         }
 
