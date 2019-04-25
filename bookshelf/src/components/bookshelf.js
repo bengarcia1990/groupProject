@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import '../css/bookshelf.css';
 import Book from './book';
+import Page from './page';
 class Bookshelf extends Component {
     // eslint-disable-next-line no-useless-constructor
     constructor() {
         super();
         this.state = {
-            books: []
+            books: [],
+            pagina: []
         }
     }
 
@@ -19,6 +21,17 @@ class Bookshelf extends Component {
             books: this.state.books
         });
     }
+
+    addPage() {
+        this.state.pagina.push({
+            id: Date.now()
+        });
+
+        this.setState({
+            pagina: this.state.pagina
+        });
+    }
+
     deleteBook(id) {
         let newBookArray = this.state.books;
         newBookArray.map((book, index) => {
@@ -49,7 +62,14 @@ class Bookshelf extends Component {
                     })}
                 </div>
 
+                <div className='pageContainer'>
+                    <button className='btn btn-primary btn-block' onClick={this.addPage.bind(this)}>Click Here To See A Page</button>
 
+                    {this.state.pagina.map(blah => {
+                        return <Page />
+                    })}
+
+                </div>
 
             </div>
         )
