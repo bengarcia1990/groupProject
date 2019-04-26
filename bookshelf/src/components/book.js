@@ -10,15 +10,11 @@ class Book extends Component {
 
     componentWillMount() {
         this.state = {
-
-
             title: GENERIC_BOOK_TITLE,
             author: GENERIC_BOOK_AUTHOR,
             year: GENERIC_BOOK_YEAR,
             genre: GENERIC_BOOK_GENRE,
             editMode: false
-
-
         }
     }
 

@@ -44,6 +44,18 @@ class Bookshelf extends Component {
         })
     }
 
+    deletePage(id) {
+        let newPageArray = this.state.pagina;
+        newPageArray.map((page, index) => {
+            if (id === page.id) {
+                newPageArray.splice(index, 1);
+            }
+        });
+        this.setState({
+            page: newPageArray
+        })
+    }
+
     render() {
         return (
 
@@ -54,21 +66,21 @@ class Bookshelf extends Component {
                             <button className='btn btn-success btn-block' onClick={this.addBook.bind(this)}>Add Book to Bookshelf</button>
                         </div>
                     </div>
+
+                    <div className='col-md-10 offset-md-1'>
+                        <button className='btn btn-primary btn-block' onClick={this.addPage.bind(this)}>Click Here To See A Page</button>
+
+                        {this.state.pagina.map(blah => {
+                            return <Page />
+                        })}
+
+                    </div>
                 </div>
                 <div className='row'>
                     {this.state.books.map(book => {
                         return <Book key={book.id} id={book.id} deleteHandler={this.deleteBook.bind(this)} />
 
                     })}
-                </div>
-
-                <div className='pageContainer'>
-                    <button className='btn btn-primary btn-block' onClick={this.addPage.bind(this)}>Click Here To See A Page</button>
-
-                    {this.state.pagina.map(blah => {
-                        return <Page />
-                    })}
-
                 </div>
 
             </div>
