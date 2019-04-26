@@ -1,7 +1,8 @@
 import React from 'react';
+import '../css/page.css'
 
 const Page = () => {
-    return (<div>
+    return (<div className="container">
         Boom SAP
     </div>
     )
